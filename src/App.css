@@ -1,0 +1,16 @@
+.app-shell {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(110,255,110,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(88,166,255,0.04) 0%, transparent 60%),
+    #000;
+}
+
+@media (max-width: 600px) {
+  .app-shell { padding: 0; background: #000; align-items: flex-start; }
+}

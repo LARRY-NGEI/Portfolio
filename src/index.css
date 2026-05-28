@@ -1,0 +1,163 @@
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Root variables (hacker theme default) ── */
+:root {
+  --bg:           #0d1117;
+  --bar:          #161b22;
+  --border:       #30363d;
+  --input-border: #21262d;
+  --text:         #e6edf3;
+  --text-muted:   #8b949e;
+  --prompt:       #7ee787;
+  --cursor:       #7ee787;
+  --green:        #7ee787;
+  --yellow:       #f0c040;
+  --cyan:         #56d4e0;
+  --magenta:      #e879f9;
+  --red:          #ff7b72;
+  --blue:         #58a6ff;
+  --font:         'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  /* tag colours */
+  --tag-blue-bg:    #0d419d;
+  --tag-blue-fg:    #58a6ff;
+  --tag-green-bg:   #033a16;
+  --tag-green-fg:   #3fb950;
+  --tag-yellow-bg:  #3d2b00;
+  --tag-yellow-fg:  #d29922;
+  --tag-purple-bg:  #271052;
+  --tag-purple-fg:  #bc8cff;
+  --tag-red-bg:     #3d0606;
+  --tag-red-fg:     #ff7b72;
+  --tag-cyan-bg:    #003f4f;
+  --tag-cyan-fg:    #56d4e0;
+}
+
+/* ── Dracula ── */
+[data-theme="dracula"] {
+  --bg:           #282a36;
+  --bar:          #1e1f29;
+  --border:       #44475a;
+  --input-border: #44475a;
+  --text:         #f8f8f2;
+  --text-muted:   #6272a4;
+  --prompt:       #50fa7b;
+  --cursor:       #ff79c6;
+  --green:        #50fa7b;
+  --yellow:       #f1fa8c;
+  --cyan:         #8be9fd;
+  --magenta:      #ff79c6;
+  --red:          #ff5555;
+  --blue:         #6272a4;
+}
+
+/* ── Nord ── */
+[data-theme="nord"] {
+  --bg:           #2e3440;
+  --bar:          #242831;
+  --border:       #3b4252;
+  --input-border: #3b4252;
+  --text:         #d8dee9;
+  --text-muted:   #4c566a;
+  --prompt:       #a3be8c;
+  --cursor:       #88c0d0;
+  --green:        #a3be8c;
+  --yellow:       #ebcb8b;
+  --cyan:         #88c0d0;
+  --magenta:      #b48ead;
+  --red:          #bf616a;
+  --blue:         #5e81ac;
+}
+
+/* ── Monokai ── */
+[data-theme="monokai"] {
+  --bg:           #272822;
+  --bar:          #1e1f1c;
+  --border:       #3e3d32;
+  --input-border: #3e3d32;
+  --text:         #f8f8f2;
+  --text-muted:   #75715e;
+  --prompt:       #a6e22e;
+  --cursor:       #f92672;
+  --green:        #a6e22e;
+  --yellow:       #e6db74;
+  --cyan:         #66d9e8;
+  --magenta:      #f92672;
+  --red:          #f92672;
+  --blue:         #66d9e8;
+}
+
+/* ── Cyberpunk ── */
+[data-theme="cyberpunk"] {
+  --bg:           #0a0a0f;
+  --bar:          #0d0d14;
+  --border:       #ff00ff44;
+  --input-border: #ff00ff22;
+  --text:         #e0e0ff;
+  --text-muted:   #6060aa;
+  --prompt:       #00ffff;
+  --cursor:       #ff00ff;
+  --green:        #00ffaa;
+  --yellow:       #ffff00;
+  --cyan:         #00ffff;
+  --magenta:      #ff00ff;
+  --red:          #ff0066;
+  --blue:         #0066ff;
+}
+
+/* ── Base layout ── */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font);
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1rem;
+  transition: background 0.3s ease;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ── Selection ── */
+::selection { background: var(--prompt); color: var(--bg); }
+
+/* ── Tag component (used in commands) ── */
+.tag {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 1px 3px;
+  letter-spacing: 0.3px;
+}
+.tag-blue   { background: var(--tag-blue-bg);   color: var(--tag-blue-fg); }
+.tag-green  { background: var(--tag-green-bg);  color: var(--tag-green-fg); }
+.tag-yellow { background: var(--tag-yellow-bg); color: var(--tag-yellow-fg); }
+.tag-purple { background: var(--tag-purple-bg); color: var(--tag-purple-fg); }
+.tag-red    { background: var(--tag-red-bg);    color: var(--tag-red-fg); }
+.tag-cyan   { background: var(--tag-cyan-bg);   color: var(--tag-cyan-fg); }
+
+/* ── Cursor blink ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Mobile tap highlight ── */
+* { -webkit-tap-highlight-color: transparent; }
